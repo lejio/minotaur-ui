@@ -79,7 +79,7 @@ const snippets: Record<string, string> = {
   <p>Three collaborators have access.</p>
 </div>`,
   avatar: `<Avatar>
-  <AvatarImage src="/avatar.jpg" />
+  <AvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" />
   <AvatarFallback>AM</AvatarFallback>
 </Avatar>`,
   "scroll-area": `<ScrollArea className="h-40">

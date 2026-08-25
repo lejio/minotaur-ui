@@ -19,6 +19,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  Input,
   Label,
   ScrollArea,
   Select,
@@ -41,11 +42,7 @@ export function LabelExample() {
   return (
     <div className="grid w-full max-w-xs gap-2">
       <Label htmlFor="project-name">Project name</Label>
-      <input
-        id="project-name"
-        className="h-9 rounded-[var(--radius-md)] border border-[var(--border)] bg-[var(--background)] px-3 text-sm"
-        placeholder="Atlas"
-      />
+      <Input id="project-name" placeholder="Atlas" />
     </div>
   );
 }

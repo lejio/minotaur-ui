@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import {
   AppShell,
   Avatar,
@@ -54,12 +54,6 @@ export function WorkspaceDemo() {
   const [activeItem, setActiveItem] = useState<(typeof navigation)[number]>("Research");
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [draft, setDraft] = useState("");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => setMounted(true));
-    return () => cancelAnimationFrame(frame);
-  }, []);
 
   function submitMessage(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -70,8 +64,6 @@ export function WorkspaceDemo() {
     setMessages((current) => [...current, { id: Date.now(), role: "user", body }]);
     setDraft("");
   }
-
-  const panelMotion = mounted ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0";
 
   return (
     <AppShell
@@ -143,10 +135,7 @@ export function WorkspaceDemo() {
           className="min-h-0 pt-3"
           primaryClassName="w-[42%] min-w-[22rem]"
           primary={
-            <Panel
-              title="Assistant"
-              className={`transition-[opacity,transform] duration-500 ease-out motion-reduce:transform-none motion-reduce:transition-none ${panelMotion}`}
-            >
+            <Panel title="Assistant">
               <div className="flex h-full min-h-0 flex-col">
                 <ScrollArea className="min-h-0 flex-1">
                   <div
@@ -198,7 +187,7 @@ export function WorkspaceDemo() {
                     onChange={(event) => setDraft(event.target.value)}
                     placeholder="Ask about the authorities…"
                     rows={3}
-                    className="min-h-[5.5rem] resize-none bg-white/40"
+                    className="min-h-[5.5rem] resize-none bg-[var(--background)]"
                   />
                   <div className="mt-2 flex items-center justify-between gap-3">
                     <span className="text-[0.68rem] text-[var(--muted-foreground)]">
@@ -218,10 +207,7 @@ export function WorkspaceDemo() {
             </Panel>
           }
           secondary={
-            <Panel
-              title="Document"
-              className={`delay-100 transition-[opacity,transform] duration-500 ease-out motion-reduce:transform-none motion-reduce:transition-none ${panelMotion}`}
-            >
+            <Panel title="Document">
               <ScrollArea className="h-full">
                 <article className="mx-auto max-w-[46rem] px-5 py-4 sm:px-8 sm:py-7">
                   <div className="border-b border-[var(--border)] pb-5">

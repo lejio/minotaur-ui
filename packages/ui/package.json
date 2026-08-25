@@ -1,10 +1,19 @@
 {
   "name": "@terra-ui/ui",
   "version": "0.1.0",
+  "description": "Light-only React components for restrained, dense product interfaces.",
+  "license": "MIT",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
-  "sideEffects": ["**/*.css"],
-  "files": ["dist"],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -27,21 +36,19 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@terra-ui/eslint-config": "workspace:^",
     "@terra-ui/typescript-config": "workspace:*",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "jsdom": "^26.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tsup": "^8.4.0",
     "typescript": "^5.8.3",
-    "vitest": "^3.1.2",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/user-event": "^14.6.1",
-    "jsdom": "^26.1.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^3.2.0"
+    "vitest": "^3.1.2"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.7",

@@ -309,6 +309,26 @@ export default async function ComponentPage({
 
       <section className="mt-12">
         <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
+          Props &amp; variants
+        </p>
+        <dl className="divide-y divide-[var(--border)] rounded-[var(--radius-lg)] border border-[var(--border)]">
+          <div className="grid gap-1 p-4 sm:grid-cols-[8rem_1fr] sm:gap-4">
+            <dt className="text-sm font-medium text-[var(--foreground)]">Props</dt>
+            <dd className="text-sm leading-6 text-[var(--muted-foreground)]">
+              {component.props}
+            </dd>
+          </div>
+          <div className="grid gap-1 p-4 sm:grid-cols-[8rem_1fr] sm:gap-4">
+            <dt className="text-sm font-medium text-[var(--foreground)]">Variants</dt>
+            <dd className="text-sm leading-6 text-[var(--muted-foreground)]">
+              {component.variants ?? "No custom variants; use the component’s standard props."}
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section className="mt-12">
+        <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
           Usage
         </p>
         <pre className="overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--foreground)] p-5 text-sm leading-6 text-[var(--background)]">

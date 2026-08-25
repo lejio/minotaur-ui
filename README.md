@@ -40,10 +40,25 @@ Install the package (once published) or link via workspace:
 pnpm add @terra-ui/ui
 ```
 
-Import the compiled token stylesheet and components:
+Terra UI requires Tailwind CSS v4 in the consuming app. Import Tailwind and Terra UI's
+token stylesheet in your global CSS, then explicitly scan the installed package so
+Tailwind generates the utilities used by the components (adjust the relative path for
+your stylesheet):
+
+```css
+@import "tailwindcss";
+@import "@terra-ui/ui/styles.css";
+
+@source "../node_modules/@terra-ui/ui/dist";
+```
+
+If you consume the package through this monorepo, source `packages/ui/src` instead, as
+shown in `apps/docs/app/globals.css`. Importing `styles.css` alone provides tokens and
+base styles, but not all component utility CSS.
+
+Then import components:
 
 ```tsx
-import "@terra-ui/ui/styles.css";
 import { Button } from "@terra-ui/ui";
 
 export function Example() {
@@ -62,4 +77,4 @@ Run `pnpm dev` and open:
 
 ## License
 
-Private monorepo — see package maintainers for usage terms.
+MIT

@@ -14,7 +14,7 @@ export const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-[color-mix(in_oklab,var(--foreground)_40%,transparent)] data-[state=open]:animate-in data-[state=closed]:animate-out",
+      "fixed inset-0 z-50 bg-[color-mix(in_oklab,var(--foreground)_40%,transparent)]",
       className,
     )}
     {...props}

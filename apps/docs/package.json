@@ -6,7 +6,7 @@
     "dev": "next dev --port 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@terra-ui/ui": "workspace:*",
@@ -15,11 +15,14 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@terra-ui/typescript-config": "workspace:*",
+    "@eslint/eslintrc": "^3.3.6",
     "@tailwindcss/postcss": "^4.1.4",
+    "@terra-ui/eslint-config": "workspace:^",
+    "@terra-ui/typescript-config": "workspace:*",
     "@types/node": "^22.14.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "eslint-config-next": "15",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3"
   }

@@ -2,6 +2,15 @@
   "name": "@terra-ui/eslint-config",
   "version": "0.0.0",
   "private": true,
-  "main": "library.js",
-  "files": ["library.js"]
+  "type": "module",
+  "exports": "./library.js",
+  "files": [
+    "library.js"
+  ],
+  "dependencies": {
+    "typescript-eslint": "^8.68.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=9"
+  }
 }

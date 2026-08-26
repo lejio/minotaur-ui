@@ -23,7 +23,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@terra-ui/ui':
+      '@minotaur-ui/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       next:
@@ -39,15 +39,15 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3.3.6
         version: 3.3.6
+      '@minotaur-ui/eslint-config':
+        specifier: workspace:^
+        version: link:../../packages/eslint-config
+      '@minotaur-ui/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@tailwindcss/postcss':
         specifier: ^4.1.4
         version: 4.3.3
-      '@terra-ui/eslint-config':
-        specifier: workspace:^
-        version: link:../../packages/eslint-config
-      '@terra-ui/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       '@types/node':
         specifier: ^22.14.1
         version: 22.20.1
@@ -69,6 +69,9 @@ importers:
 
   packages/eslint-config:
     dependencies:
+      eslint:
+        specifier: '>=9'
+        version: 9.39.5(jiti@2.7.0)
       typescript-eslint:
         specifier: ^8.68.0
         version: 8.68.0(eslint@9.39.5(jiti@2.7.0))(typescript@5.9.3)
@@ -120,10 +123,10 @@ importers:
         specifier: ^3.2.0
         version: 3.6.0
     devDependencies:
-      '@terra-ui/eslint-config':
+      '@minotaur-ui/eslint-config':
         specifier: workspace:^
         version: link:../eslint-config
-      '@terra-ui/typescript-config':
+      '@minotaur-ui/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@testing-library/jest-dom':

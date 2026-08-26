@@ -1,5 +1,5 @@
 {
-  "name": "@terra-ui/ui",
+  "name": "@minotaur-ui/ui",
   "version": "0.1.0",
   "description": "Light-only React components for restrained, dense product interfaces.",
   "license": "MIT",
@@ -36,8 +36,8 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@terra-ui/eslint-config": "workspace:^",
-    "@terra-ui/typescript-config": "workspace:*",
+    "@minotaur-ui/eslint-config": "workspace:^",
+    "@minotaur-ui/typescript-config": "workspace:*",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",

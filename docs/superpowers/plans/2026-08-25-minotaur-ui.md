@@ -1,8 +1,8 @@
-# Terra UI v1 Implementation Plan
+# Minotaur UI v1 Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Ship a publishable `@terra-ui/ui` library (Harvey-inspired, light-only) plus a Next.js docs app with component pages and a workspace shell demo (sidebar, chat, document panel).
+**Goal:** Ship a publishable `@minotaur-ui/ui` library (Harvey-inspired, light-only) plus a Next.js docs app with component pages and a workspace shell demo (sidebar, chat, document panel).
 
 **Architecture:** pnpm + Turborepo monorepo. `packages/ui` owns tokens (CSS variables), Tailwind-styled Radix primitives, and shell building blocks, built with tsup. `apps/docs` consumes the workspace package via `transpilePackages` and hosts docs + the product demo with mock data.
 
@@ -10,7 +10,7 @@
 
 ## Global Constraints
 
-- Package name: `@terra-ui/ui`
+- Package name: `@minotaur-ui/ui`
 - Theme: light only (no dark mode requirement)
 - Styling: Tailwind CSS v4 + CSS variables on `:root`
 - Accent: restrained deep slate/ink (not bright teal or purple)
@@ -18,14 +18,14 @@
 - Dual register: editorial (docs landing, empty states) + product (shell density)
 - No Storybook; no real AI backend; mock data only in demo
 - Library must be publish-ready (`exports`, `types`, `files`, `peerDependencies`)
-- Spec: `docs/superpowers/specs/2026-08-25-terra-ui-design.md`
+- Spec: `docs/superpowers/specs/2026-08-25-minotaur-ui-design.md`
 
 ---
 
 ## File structure (target)
 
 ```
-terra-ui/
+minotaur-ui/
 ├── package.json
 ├── pnpm-workspace.yaml
 ├── turbo.json
@@ -106,14 +106,14 @@ terra-ui/
 
 **Interfaces:**
 - Consumes: none
-- Produces: pnpm workspace with `@terra-ui/typescript-config`, `@terra-ui/eslint-config`, `@terra-ui/ui` (empty), `docs` app stub
+- Produces: pnpm workspace with `@minotaur-ui/typescript-config`, `@minotaur-ui/eslint-config`, `@minotaur-ui/ui` (empty), `docs` app stub
 
 - [ ] **Step 1: Create root workspace files**
 
 `package.json`:
 ```json
 {
-  "name": "terra-ui",
+  "name": "minotaur-ui",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -190,7 +190,7 @@ export default config;
 `packages/typescript-config/package.json`:
 ```json
 {
-  "name": "@terra-ui/typescript-config",
+  "name": "@minotaur-ui/typescript-config",
   "version": "0.0.0",
   "private": true,
   "files": ["*.json"]
@@ -251,7 +251,7 @@ export default config;
 `packages/eslint-config/package.json`:
 ```json
 {
-  "name": "@terra-ui/eslint-config",
+  "name": "@minotaur-ui/eslint-config",
   "version": "0.0.0",
   "private": true,
   "main": "library.js",
@@ -274,7 +274,7 @@ module.exports = [
 `packages/ui/package.json`:
 ```json
 {
-  "name": "@terra-ui/ui",
+  "name": "@minotaur-ui/ui",
   "version": "0.1.0",
   "private": false,
   "type": "module",
@@ -302,7 +302,7 @@ module.exports = [
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@terra-ui/typescript-config": "workspace:*",
+    "@minotaur-ui/typescript-config": "workspace:*",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "react": "^19.1.0",
@@ -340,7 +340,7 @@ module.exports = [
 `packages/ui/tsconfig.json`:
 ```json
 {
-  "extends": "@terra-ui/typescript-config/react-library.json",
+  "extends": "@minotaur-ui/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src"
@@ -379,7 +379,7 @@ Expected: lockfile created; workspace packages linked without errors.
 
 ```bash
 git add package.json pnpm-workspace.yaml turbo.json .gitignore prettier.config.mjs pnpm-lock.yaml packages apps
-git commit -m "chore: scaffold terra-ui pnpm monorepo"
+git commit -m "chore: scaffold minotaur-ui pnpm monorepo"
 ```
 
 ---
@@ -495,7 +495,7 @@ Note: the `"use client"` banner applies to the bundle so Next App Router can imp
 
 - [ ] **Step 3: Build package to verify CSS lands in dist**
 
-Run: `pnpm --filter @terra-ui/ui build`
+Run: `pnpm --filter @minotaur-ui/ui build`
 Expected: `packages/ui/dist/styles.css` exists and contains `--background`.
 
 - [ ] **Step 4: Commit**
@@ -568,7 +568,7 @@ describe("Button", () => {
 
 - [ ] **Step 3: Run test to verify it fails**
 
-Run: `pnpm --filter @terra-ui/ui test`
+Run: `pnpm --filter @minotaur-ui/ui test`
 Expected: FAIL (cannot find module `../components/button` or similar)
 
 - [ ] **Step 4: Implement `cn` and `Button`**
@@ -648,7 +648,7 @@ export { Button, buttonVariants, type ButtonProps } from "./components/button";
 
 - [ ] **Step 5: Run tests to verify they pass**
 
-Run: `pnpm --filter @terra-ui/ui test`
+Run: `pnpm --filter @minotaur-ui/ui test`
 Expected: PASS (3 tests)
 
 - [ ] **Step 6: Commit**
@@ -857,7 +857,7 @@ export {
 
 - [ ] **Step 4: Build to verify types compile**
 
-Run: `pnpm --filter @terra-ui/ui build`
+Run: `pnpm --filter @minotaur-ui/ui build`
 Expected: exit 0; `dist/index.d.ts` includes `Input`, `Select`.
 
 - [ ] **Step 5: Commit**
@@ -923,7 +923,7 @@ describe("Dialog", () => {
 
 - [ ] **Step 2: Run test — expect FAIL**
 
-Run: `pnpm --filter @terra-ui/ui test`
+Run: `pnpm --filter @minotaur-ui/ui test`
 Expected: FAIL missing `../components/dialog`
 
 - [ ] **Step 3: Implement Dialog and remaining primitives**
@@ -1053,7 +1053,7 @@ export { ScrollArea } from "./components/scroll-area";
 
 - [ ] **Step 5: Run tests**
 
-Run: `pnpm --filter @terra-ui/ui test`
+Run: `pnpm --filter @minotaur-ui/ui test`
 Expected: PASS (Button + Dialog tests)
 
 - [ ] **Step 6: Commit**
@@ -1292,7 +1292,7 @@ export { SplitView } from "./components/split-view";
 
 - [ ] **Step 3: Build + test**
 
-Run: `pnpm --filter @terra-ui/ui build && pnpm --filter @terra-ui/ui test`
+Run: `pnpm --filter @minotaur-ui/ui build && pnpm --filter @minotaur-ui/ui test`
 Expected: both exit 0
 
 - [ ] **Step 4: Commit**
@@ -1312,7 +1312,7 @@ git commit -m "feat(ui): add app shell building blocks"
 - Ensure Tailwind v4 scans both docs and `packages/ui` source
 
 **Interfaces:**
-- Consumes: `@terra-ui/ui`, `@terra-ui/ui/styles.css`
+- Consumes: `@minotaur-ui/ui`, `@minotaur-ui/ui/styles.css`
 - Produces: running Next app at `/` with editorial landing linking to Components and Demo
 
 - [ ] **Step 1: Configure docs package**
@@ -1330,13 +1330,13 @@ git commit -m "feat(ui): add app shell building blocks"
     "lint": "next lint"
   },
   "dependencies": {
-    "@terra-ui/ui": "workspace:*",
+    "@minotaur-ui/ui": "workspace:*",
     "next": "^15.3.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@terra-ui/typescript-config": "workspace:*",
+    "@minotaur-ui/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.4",
     "@types/node": "^22.14.1",
     "@types/react": "^19.1.2",
@@ -1352,7 +1352,7 @@ git commit -m "feat(ui): add app shell building blocks"
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@terra-ui/ui"],
+  transpilePackages: ["@minotaur-ui/ui"],
 };
 
 export default nextConfig;
@@ -1361,7 +1361,7 @@ export default nextConfig;
 `apps/docs/tsconfig.json`:
 ```json
 {
-  "extends": "@terra-ui/typescript-config/nextjs.json",
+  "extends": "@minotaur-ui/typescript-config/nextjs.json",
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"]
@@ -1390,7 +1390,7 @@ Run: `pnpm install`
 `apps/docs/app/globals.css`:
 ```css
 @import "tailwindcss";
-@import "@terra-ui/ui/styles.css";
+@import "@minotaur-ui/ui/styles.css";
 
 @source "../../../packages/ui/src";
 
@@ -1424,7 +1424,7 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Terra UI",
+  title: "Minotaur UI",
   description: "Editorial design system for calm product interfaces",
 };
 
@@ -1449,13 +1449,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 `apps/docs/app/page.tsx`:
 ```tsx
 import Link from "next/link";
-import { Button } from "@terra-ui/ui";
+import { Button } from "@minotaur-ui/ui";
 
 export default function HomePage() {
   return (
     <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center gap-8 px-6 py-16">
       <p className="text-sm uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
-        Terra UI
+        Minotaur UI
       </p>
       <h1 className="font-display text-5xl text-[var(--foreground)]">
         Quiet interfaces for serious work.
@@ -1486,7 +1486,7 @@ Expected: Next build succeeds.
 
 ```bash
 git add apps/docs pnpm-lock.yaml
-git commit -m "feat(docs): scaffold Next.js docs app with Terra theme"
+git commit -m "feat(docs): scaffold Next.js docs app with Minotaur theme"
 ```
 
 ---
@@ -1499,7 +1499,7 @@ git commit -m "feat(docs): scaffold Next.js docs app with Terra theme"
 - Create: `apps/docs/app/components/[slug]/page.tsx`
 
 **Interfaces:**
-- Consumes: all exported primitives from `@terra-ui/ui`
+- Consumes: all exported primitives from `@minotaur-ui/ui`
 - Produces: `/components` index + `/components/[slug]` live examples for every v1 component
 
 - [ ] **Step 1: Define docs registry**
@@ -1577,7 +1577,7 @@ git commit -m "feat(docs): add component documentation pages"
 - [ ] **Step 1: Implement client workspace demo**
 
 `workspace-demo.tsx` responsibilities:
-- Sidebar with brand “Terra”, nav items (Matters, Research, Drafts) — one `active`
+- Sidebar with brand “Minotaur”, nav items (Matters, Research, Drafts) — one `active`
 - TopBar with muted status badge “Demo”
 - PageHeader title “Research workspace”
 - SplitView:
@@ -1610,7 +1610,7 @@ git commit -m "feat(docs): add workspace shell demo"
 **Files:**
 - Modify: `packages/ui/package.json` (confirm `files`, `exports`, `peerDependencies`)
 - Create: `README.md` at repo root (install + usage)
-- Optionally: ensure `private: false` on `@terra-ui/ui`
+- Optionally: ensure `private: false` on `@minotaur-ui/ui`
 
 **Interfaces:**
 - Consumes: completed library
@@ -1619,14 +1619,14 @@ git commit -m "feat(docs): add workspace shell demo"
 - [ ] **Step 1: Write root README**
 
 Include:
-- What Terra UI is
+- What Minotaur UI is
 - Monorepo structure
 - `pnpm install` / `pnpm dev` / `pnpm build` / `pnpm test`
 - Consumer snippet:
 
 ```tsx
-import "@terra-ui/ui/styles.css";
-import { Button } from "@terra-ui/ui";
+import "@minotaur-ui/ui/styles.css";
+import { Button } from "@minotaur-ui/ui";
 ```
 
 - [ ] **Step 2: Run full verification**
@@ -1636,7 +1636,7 @@ pnpm test
 pnpm build
 ```
 
-Expected: UI tests pass; `@terra-ui/ui` and `docs` build successfully; `packages/ui/dist` contains `index.js`, `index.d.ts`, `styles.css`.
+Expected: UI tests pass; `@minotaur-ui/ui` and `docs` build successfully; `packages/ui/dist` contains `index.js`, `index.d.ts`, `styles.css`.
 
 - [ ] **Step 3: Confirm success criteria**
 
@@ -1660,7 +1660,7 @@ git commit -m "docs: add README and confirm publish-ready package exports"
 | Spec requirement | Task |
 |------------------|------|
 | Monorepo pnpm + Turborepo | Task 1 |
-| `@terra-ui/ui` + `apps/docs` | Tasks 1, 7 |
+| `@minotaur-ui/ui` + `apps/docs` | Tasks 1, 7 |
 | Tailwind v4 + CSS variables, light only | Tasks 2, 7 |
 | Newsreader + Geist | Task 7 |
 | Deep slate/ink accent | Task 2 |

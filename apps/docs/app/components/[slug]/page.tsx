@@ -15,7 +15,7 @@ import {
   SplitView,
   Textarea,
   TopBar,
-} from "@terra-ui/ui";
+} from "@minotaur-ui/ui";
 import { componentDocs } from "../../../lib/component-docs";
 import {
   AvatarExample,
@@ -90,7 +90,7 @@ const snippets: Record<string, string> = {
   <main>Project content</main>
 </AppShell>`,
   sidebar: `<Sidebar>
-  <SidebarHeader>Terra</SidebarHeader>
+  <SidebarHeader>Minotaur</SidebarHeader>
   <SidebarNav>
     <SidebarItem active>Overview</SidebarItem>
   </SidebarNav>
@@ -129,7 +129,7 @@ export async function generateMetadata({
 
   return component
     ? {
-        title: `${component.title} — Terra UI`,
+        title: `${component.title} — Minotaur UI`,
         description: component.description,
       }
     : {};
@@ -184,7 +184,7 @@ function ComponentExample({ slug }: { slug: string }) {
           className="h-72 min-h-0 w-full overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)]"
           sidebar={
             <Sidebar className="w-44">
-              <SidebarHeader>Terra</SidebarHeader>
+              <SidebarHeader>Minotaur</SidebarHeader>
               <SidebarNav>
                 <SidebarItem active>Overview</SidebarItem>
                 <SidebarItem>Projects</SidebarItem>
@@ -204,7 +204,7 @@ function ComponentExample({ slug }: { slug: string }) {
     case "sidebar":
       return (
         <Sidebar className="h-72 w-56 rounded-[var(--radius-lg)] border border-[var(--border)]">
-          <SidebarHeader>Terra</SidebarHeader>
+          <SidebarHeader>Minotaur</SidebarHeader>
           <SidebarNav>
             <SidebarItem active>Overview</SidebarItem>
             <SidebarItem>Projects</SidebarItem>

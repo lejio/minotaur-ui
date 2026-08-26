@@ -1,5 +1,5 @@
 {
-  "extends": "@terra-ui/typescript-config/react-library.json",
+  "extends": "@minotaur-ui/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src"

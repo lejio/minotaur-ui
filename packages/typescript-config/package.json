@@ -1,5 +1,5 @@
 {
-  "name": "@terra-ui/typescript-config",
+  "name": "@minotaur-ui/typescript-config",
   "version": "0.0.0",
   "private": true,
   "files": ["*.json"]

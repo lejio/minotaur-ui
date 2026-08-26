@@ -36,7 +36,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@terra-ui/ui";
+} from "@minotaur-ui/ui";
 
 export function LabelExample() {
   return (

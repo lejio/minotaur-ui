@@ -1,14 +1,14 @@
-# Terra UI — Design Spec
+# Minotaur UI — Design Spec
 
 **Date:** 2026-08-25  
 **Status:** Approved for planning  
-**Repo:** `~/Developer/Workspace/Projects/terra-ui`
+**Repo:** `~/Developer/Workspace/Projects/minotaur-ui`
 
 ## Goal
 
-Build **Terra UI**: an open/team design system and component library inspired by Harvey AI’s quiet, editorial product aesthetic, delivered as:
+Build **Minotaur UI**: an open/team design system and component library inspired by Harvey AI’s quiet, editorial product aesthetic, delivered as:
 
-1. A **publishable React component library** (`@terra-ui/ui`)
+1. A **publishable React component library** (`@minotaur-ui/ui`)
 2. A **Next.js App Router docs + product-shell demo** (`apps/docs`) that consumes the library
 
 v1 is light-theme only. Visual language blends **editorial restraint** (marketing/docs, empty states) with **product density** (workspace chrome: sidebar, chat, document panels).
@@ -27,11 +27,11 @@ v1 is light-theme only. Visual language blends **editorial restraint** (marketin
 ### Monorepo layout
 
 ```
-terra-ui/
+minotaur-ui/
 ├── apps/
 │   └── docs/                 # Next.js App Router — docs + shell demo (private)
 ├── packages/
-│   ├── ui/                   # @terra-ui/ui — publishable library
+│   ├── ui/                   # @minotaur-ui/ui — publishable library
 │   ├── typescript-config/    # shared TS configs
 │   └── eslint-config/        # shared ESLint configs
 ├── package.json              # pnpm workspace root
@@ -50,23 +50,23 @@ terra-ui/
 | Styling | Tailwind CSS v4 | Utility DX; tokens via CSS variables mapped into theme |
 | Variants | `class-variance-authority` + `clsx` / `tailwind-merge` (`cn` helper) | Consistent `variant` / `size` APIs |
 | Docs app | Next.js App Router | Same runtime consumers will use; RSC-friendly docs |
-| Package model | shadcn-style ownership | Source lives in-repo; published as `@terra-ui/ui` for install |
+| Package model | shadcn-style ownership | Source lives in-repo; published as `@minotaur-ui/ui` for install |
 
 ### Package boundary
 
-- **`@terra-ui/ui`**
+- **`@minotaur-ui/ui`**
   - Peer deps: `react`, `react-dom`
   - Exports: named component exports + CSS entry for tokens
   - Build: `tsup` (or equivalent) emitting ESM + `.d.ts` for publish; docs app may also use Next `transpilePackages` during local development
 - **`apps/docs`**
-  - Depends on `@terra-ui/ui` via `workspace:*`
+  - Depends on `@minotaur-ui/ui` via `workspace:*`
   - Not published
 
 ### Consumer DX (target)
 
 ```tsx
-import "@terra-ui/ui/styles.css";
-import { Button, AppShell } from "@terra-ui/ui";
+import "@minotaur-ui/ui/styles.css";
+import { Button, AppShell } from "@minotaur-ui/ui";
 ```
 
 Consumers who already use Tailwind may also share the same CSS variable contract so utilities like `bg-background` align when configured.
@@ -137,7 +137,7 @@ CSS variables on `:root`:
 
 ## API conventions
 
-- Named exports only from `@terra-ui/ui` (no default export barrel surprises beyond a single index)
+- Named exports only from `@minotaur-ui/ui` (no default export barrel surprises beyond a single index)
 - Prefer composable parts over mega-props (e.g. `Dialog` + `DialogContent` pattern consistent with Radix)
 - `variant` and `size` where applicable; sensible defaults that look correct in both editorial and product contexts
 - Accessibility is required: keyboard navigation, visible focus, correct labeling via Radix patterns
@@ -152,7 +152,7 @@ CSS variables on `:root`:
 
 ## Success criteria (v1)
 
-1. `@terra-ui/ui` can be linked/installed and renders primitives with token CSS.
+1. `@minotaur-ui/ui` can be linked/installed and renders primitives with token CSS.
 2. Docs site lists each v1 component with live examples.
 3. One shell demo page reads as Harvey-adjacent: editorial empty/calm states + dense workspace chrome (sidebar, chat, document panel).
 4. Library `package.json` is publish-ready (`name`, `exports`, `types`, `files`, `peerDependencies`).

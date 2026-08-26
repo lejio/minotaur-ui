@@ -1,5 +1,5 @@
 {
-  "name": "terra-ui",
+  "name": "minotaur-ui",
   "private": true,
   "scripts": {
     "build": "turbo run build",

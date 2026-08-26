@@ -9,7 +9,7 @@ export default function ComponentsPage() {
           href="/"
           className="mb-8 inline-block text-sm text-[var(--muted-foreground)] transition-colors hover:text-[var(--foreground)]"
         >
-          ← Terra UI
+          ← Minotaur UI
         </Link>
         <p className="mb-3 text-xs font-medium uppercase tracking-[0.22em] text-[var(--muted-foreground)]">
           Component library

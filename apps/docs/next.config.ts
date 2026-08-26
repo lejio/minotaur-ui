@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@terra-ui/ui"],
+  transpilePackages: ["@minotaur-ui/ui"],
 };
 
 export default nextConfig;

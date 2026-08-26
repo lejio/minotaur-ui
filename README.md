@@ -1,15 +1,15 @@
-# Terra UI
+# Minotaur UI
 
-A light-only React component library for product interfaces that need editorial restraint and product density. Terra UI ships design tokens (Tailwind v4 + CSS variables), accessible Radix-based primitives, and an app shell for workspace layouts — with Newsreader and Geist typography and a deep slate/ink accent palette.
+A light-only React component library for product interfaces that need editorial restraint and product density. Minotaur UI ships design tokens (Tailwind v4 + CSS variables), accessible Radix-based primitives, and an app shell for workspace layouts — with Newsreader and Geist typography and a deep slate/ink accent palette.
 
 ## Monorepo structure
 
 ```
-terra-ui/
+minotaur-ui/
 ├── apps/
 │   └── docs/          # Next.js documentation site and workspace demo
 ├── packages/
-│   ├── ui/            # @terra-ui/ui — publishable component library
+│   ├── ui/            # @minotaur-ui/ui — publishable component library
 │   ├── eslint-config/ # Shared ESLint config
 │   └── typescript-config/  # Shared TypeScript config
 ├── pnpm-workspace.yaml
@@ -18,7 +18,7 @@ terra-ui/
 
 | Package | Description |
 |---------|-------------|
-| `@terra-ui/ui` | React components, utilities, and compiled CSS tokens |
+| `@minotaur-ui/ui` | React components, utilities, and compiled CSS tokens |
 | `docs` | Component docs with live examples and `/demo` workspace shell |
 
 ## Getting started
@@ -28,7 +28,7 @@ Requires Node.js ≥ 20 and [pnpm](https://pnpm.io) 9.
 ```bash
 pnpm install
 pnpm dev      # Start docs dev server (http://localhost:3000)
-pnpm build    # Build @terra-ui/ui and docs
+pnpm build    # Build @minotaur-ui/ui and docs
 pnpm test     # Run UI library tests
 ```
 
@@ -37,19 +37,19 @@ pnpm test     # Run UI library tests
 Install the package (once published) or link via workspace:
 
 ```bash
-pnpm add @terra-ui/ui
+pnpm add @minotaur-ui/ui
 ```
 
-Terra UI requires Tailwind CSS v4 in the consuming app. Import Tailwind and Terra UI's
+Minotaur UI requires Tailwind CSS v4 in the consuming app. Import Tailwind and Minotaur UI's
 token stylesheet in your global CSS, then explicitly scan the installed package so
 Tailwind generates the utilities used by the components (adjust the relative path for
 your stylesheet):
 
 ```css
 @import "tailwindcss";
-@import "@terra-ui/ui/styles.css";
+@import "@minotaur-ui/ui/styles.css";
 
-@source "../node_modules/@terra-ui/ui/dist";
+@source "../node_modules/@minotaur-ui/ui/dist";
 ```
 
 If you consume the package through this monorepo, source `packages/ui/src` instead, as
@@ -59,7 +59,7 @@ base styles, but not all component utility CSS.
 Then import components:
 
 ```tsx
-import { Button } from "@terra-ui/ui";
+import { Button } from "@minotaur-ui/ui";
 
 export function Example() {
   return <Button>Save draft</Button>;

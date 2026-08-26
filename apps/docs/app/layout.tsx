@@ -13,7 +13,7 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Terra UI",
+  title: "Minotaur UI",
   description: "Editorial design system for calm product interfaces",
 };
 

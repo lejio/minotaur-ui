@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@terra-ui/ui/styles.css";
+@import "@minotaur-ui/ui/styles.css";
 
 @source "../../../packages/ui/src";
 

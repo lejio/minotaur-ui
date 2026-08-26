@@ -1,5 +1,5 @@
 import { FlatCompat } from "@eslint/eslintrc";
-import terraConfig from "@terra-ui/eslint-config";
+import minotaurConfig from "@minotaur-ui/eslint-config";
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -9,7 +9,7 @@ const config = [
   {
     ignores: ["next-env.d.ts"],
   },
-  ...terraConfig,
+  ...minotaurConfig,
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 

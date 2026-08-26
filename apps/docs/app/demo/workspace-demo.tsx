@@ -17,7 +17,7 @@ import {
   SplitView,
   Textarea,
   TopBar,
-} from "@terra-ui/ui";
+} from "@minotaur-ui/ui";
 
 type Message = {
   id: number;
@@ -74,7 +74,7 @@ export function WorkspaceDemo() {
             <span className="flex size-7 items-center justify-center rounded-[var(--radius-md)] bg-[var(--accent)] font-sans text-xs font-semibold text-[var(--accent-foreground)]">
               T
             </span>
-            Terra
+            Minotaur
           </SidebarHeader>
           <SidebarNav aria-label="Workspace navigation" className="pt-3">
             <p className="px-3 pb-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[var(--muted-foreground)]">
@@ -165,7 +165,7 @@ export function WorkspaceDemo() {
                           }`}
                         >
                           <p className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-[var(--muted-foreground)]">
-                            {message.role === "assistant" ? "Terra" : "You"}
+                            {message.role === "assistant" ? "Minotaur" : "You"}
                           </p>
                           <p className="text-[0.82rem] leading-5">{message.body}</p>
                         </div>

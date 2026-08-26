@@ -1,3 +1,3 @@
-import terraConfig from "@terra-ui/eslint-config";
+import minotaurConfig from "@minotaur-ui/eslint-config";
 
-export default terraConfig;
+export default minotaurConfig;

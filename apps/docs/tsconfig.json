@@ -1,5 +1,5 @@
 {
-  "extends": "@terra-ui/typescript-config/nextjs.json",
+  "extends": "@minotaur-ui/typescript-config/nextjs.json",
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"]

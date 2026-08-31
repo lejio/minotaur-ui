@@ -6,8 +6,8 @@ A light-only React component library for product interfaces that need editorial 
 
 ```
 minotaur-ui/
-├── apps/
-│   └── docs/          # Next.js documentation site and workspace demo
+├── demo/              # Next.js product workspace demo
+├── web/               # Next.js documentation site
 ├── packages/
 │   ├── ui/            # @minotaur-ui/ui — publishable component library
 │   ├── eslint-config/ # Shared ESLint config
@@ -19,7 +19,8 @@ minotaur-ui/
 | Package | Description |
 |---------|-------------|
 | `@minotaur-ui/ui` | React components, utilities, and compiled CSS tokens |
-| `docs` | Component docs with live examples and `/demo` workspace shell |
+| `web` | Component docs with live examples and `/demo` workspace shell |
+| `demo` | Standalone product workspace app |
 
 ## Getting started
 
@@ -27,8 +28,8 @@ Requires Node.js ≥ 20 and [pnpm](https://pnpm.io) 9.
 
 ```bash
 pnpm install
-pnpm dev      # Start docs dev server (http://localhost:3000)
-pnpm build    # Build @minotaur-ui/ui and docs
+pnpm dev      # Start web (http://localhost:3000) and demo (http://localhost:3001)
+pnpm build    # Build @minotaur-ui/ui, web, and demo
 pnpm test     # Run UI library tests
 ```
 
@@ -53,7 +54,7 @@ your stylesheet):
 ```
 
 If you consume the package through this monorepo, source `packages/ui/src` instead, as
-shown in `apps/docs/app/globals.css`. Importing `styles.css` alone provides tokens and
+shown in `web/app/globals.css`. Importing `styles.css` alone provides tokens and
 base styles, but not all component utility CSS.
 
 Then import components:
@@ -70,7 +71,7 @@ Peer dependencies: `react` and `react-dom` ^19.
 
 ## Documentation
 
-Run `pnpm dev` and open:
+Run `pnpm --filter web dev` and open:
 
 - `/components` — all v1 components with live examples
 - `/demo` — editorial + dense workspace shell (sidebar, chat, document)

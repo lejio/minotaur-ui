@@ -76,6 +76,12 @@ Run `pnpm --filter web dev` and open:
 - `/components` — all v1 components with live examples
 - `/demo` — editorial + dense workspace shell (sidebar, chat, document)
 
+### GitHub Pages
+
+The `web` app deploys to [https://lejio.github.io/minotaur-ui/](https://lejio.github.io/minotaur-ui/) on pushes to `main` (workflow: Deploy web to GitHub Pages).
+
+One-time repo setting: **Settings → Pages → Source → GitHub Actions**.
+
 ## License
 
 MIT
